@@ -11,7 +11,7 @@ public class DAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			conn = DriverManager.getConnection(
-					"jdbc:sqlserver://localhost:1433;databasename=QLSV;integratedSecurity=true", "", "");
+					"jdbc:sqlserver://localhost:1433;databasename=QLSV1;integratedSecurity=true", "", "");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -75,7 +75,7 @@ public class DAO {
 	}
 
 	public boolean updateStudent(String maSV, Student s) {
-		String sql = "UPDATE TABLE STUDENT SET HOTEN = ?, IDCLASS = ?, NGAYSINH = ?, GIOITINH = ?, DIACHI = ?, DIENTHOAI = ?, KHOANGANH = ?, LOGINSV = ? WHERE MASV = ?";
+		String sql = "UPDATE STUDENT SET HOTEN = ?, IDCLASS = ?, NGAYSINH = ?, GIOITINH = ?, DIACHI = ?, DIENTHOAI = ?, KHOANGANH = ?, LOGINSV = ? WHERE MASV = ?";
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, s.getHoTen());
@@ -92,6 +92,24 @@ public class DAO {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	public ArrayList<Classs> getListClass() {
+		ArrayList<Classs> list = new ArrayList<>();
+		String sql = "SELECT*FROM CLASS";
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Classs c = new Classs();
+				c.setIdClass(rs.getString(1));
+				c.setNameClass(rs.getString(2));
+				list.add(c);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	public ArrayList<String> getListIDClass() {

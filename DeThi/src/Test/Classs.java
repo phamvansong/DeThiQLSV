@@ -1,10 +1,10 @@
 package Test;
 
-public class Class {
+public class Classs {
 	private String idClass;
 	private String nameClass;
 	
-	public Class() {
+	public Classs() {
 		super();
 	}
 	public String getIdClass() {
