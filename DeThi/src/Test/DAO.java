@@ -11,7 +11,7 @@ public class DAO {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 			conn = DriverManager.getConnection(
-					"jdbc:sqlserver://localhost:1433;databasename=QLSV1;integratedSecurity=true", "", "");
+					"jdbc:sqlserver://localhost:1433;databasename=QLSV;integratedSecurity=true", "", "");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
