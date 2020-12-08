@@ -88,6 +88,13 @@ public class Student {
 	public void setLoginSV(String loginSV) {
 		this.loginSV = loginSV;
 	}
+
+	@Override
+	public String toString() {
+		return "Student [maSV=" + maSV + ", hoTen=" + hoTen + ", idClass=" + idClass + ", ngaySinh=" + ngaySinh
+				+ ", gioiTinh=" + gioiTinh + ", diaChi=" + diaChi + ", dienThoai=" + dienThoai + ", khoaNganh="
+				+ khoaNganh + ", loginSV=" + loginSV + "]";
+	}
 	
 	
 }
